@@ -6,6 +6,42 @@ Getting started with [Claude Code](https://docs.anthropic.com/en/docs/claude-cod
 
 ---
 
+## StackArmor Setup: Vertex AI Backend
+
+At StackArmor, Claude Code runs via **Vertex AI** — not the public Anthropic API. This means:
+
+- No personal Anthropic account or API key required
+- All usage is authenticated through your GCP identity (`gcloud` ADC)
+- Every API call is auditable per-user — no shared credentials
+- Access is gated by IAM group membership in `armoryd2v-gss-prod`
+
+**Before anything else, follow the Vertex AI setup guide:**
+
+**[docs/vertex-ai-setup.md](docs/vertex-ai-setup.md)**
+
+It covers setup for both VS Code and the terminal CLI. The short version:
+
+```bash
+# 1. Authenticate gcloud (sets Application Default Credentials)
+gcloud auth login --update-adc
+
+# 2. Add to ~/.claude/settings.json
+{
+  "env": {
+    "CLAUDE_CODE_USE_VERTEX": "1",
+    "CLOUD_ML_REGION": "global",
+    "ANTHROPIC_VERTEX_PROJECT_ID": "armoryd2v-gss-prod"
+  }
+}
+
+# 3. Launch
+claude
+```
+
+If you get a `PERMISSION_DENIED` error, ask your manager to add your GCP identity to the Vertex AI access group.
+
+---
+
 ## What is Claude Code?
 
 Claude Code is an agentic CLI tool built by Anthropic that runs directly in your terminal. Unlike a chat interface, Claude Code can read your files, run commands, edit code, search the web, and orchestrate complex multi-step tasks — all from your working directory.
@@ -23,14 +59,14 @@ This is different from asking ChatGPT a question. Claude Code has **agency**: it
 ## Installation
 
 ```bash
-# Requires Node.js 18+
-npm install -g @anthropic-ai/claude-code
+# WSL / Ubuntu / macOS
+curl -fsSL https://claude.ai/install.sh | bash
 
 # Verify
 claude --version
 ```
 
-On first run, Claude Code will prompt you to authenticate with your Anthropic account (or enterprise SSO if configured).
+At StackArmor you do **not** need an Anthropic account or API key. Authentication is handled entirely through GCP. See [docs/vertex-ai-setup.md](docs/vertex-ai-setup.md) for the full setup walkthrough.
 
 ---
 
@@ -196,6 +232,7 @@ This helps every team member who uses Claude Code in that repo get up to speed f
 
 ## Further Reading
 
+- [StackArmor Vertex AI Setup](docs/vertex-ai-setup.md) — how auth works and how to configure it
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code/overview)
 - [CLAUDE.md Best Practices](https://docs.anthropic.com/en/docs/claude-code/memory)
 - [Settings Reference](https://docs.anthropic.com/en/docs/claude-code/settings)

@@ -67,6 +67,9 @@
     ]
   },
 
+  "_auto_memory_comment": "CLAUDE_CODE_DISABLE_AUTO_MEMORY=0 ENABLES auto memory (retains context across sessions).",
+  "_auto_memory_comment2": "Set to '1' to disable. Most users should leave it at 0.",
+
   "_plugins_comment": "Plugins extend Claude Code with team-specific slash commands and skills.",
   "_plugins_comment2": "Format: \"plugin-name@publisher\": true",
   "_plugins_comment3": "Install plugins via /plugins in a Claude Code session, then add the entry here.",

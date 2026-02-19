@@ -134,7 +134,8 @@ The sample configs in `examples/` reflect this progression.
 | File | Purpose |
 |------|---------|
 | `examples/global-CLAUDE.md` | Sample `~/.claude/CLAUDE.md` — copy and personalize |
-| `examples/repo-CLAUDE.md` | Sample repo-level `CLAUDE.md` — add to your repositories |
+| `examples/gitlab-workspace-CLAUDE.md` | Workspace-level `CLAUDE.md` for GitLab orgs — `sa-gitlab` plugin config with placement guidance |
+| `examples/repo-CLAUDE.md` | Sample repo-level `CLAUDE.md` — commit this to your repositories |
 | `examples/settings-starter.json` | Safe defaults — Claude asks before any shell command |
 | `examples/settings-yolo.json` | Advanced "quasi-yolo" — auto-approves most commands, asks for destructive ops |
 
@@ -180,19 +181,29 @@ To enable a plugin, add it to the `enabledPlugins` section of `~/.claude/setting
 
 ### Configuring a Plugin
 
-Many plugins read configuration from the `CLAUDE.md` in your working directory. For example, the `sa-gitlab` plugin reads:
+Plugins read configuration from the `CLAUDE.md` nearest to your working directory. The `sa-gitlab`
+plugin, for example, reads a configuration table like this from your workspace or repo-level `CLAUDE.md`:
 
 ```markdown
 ## GitLab Plugin Configuration
 
 | Key | Value |
 |-----|-------|
-| `GITLAB_HOST` | `gitlab-prod.thearmory-gss.cloud` |
-| `GITLAB_PRIMARY_PROJECT` | `myteam/myproject` |
-| `GITLAB_USERNAME` | `your-username` |
+| `GITLAB_PAT_CMD`            | `export GITLAB_PAT=$(echo $MY_GITLAB_PAT)` |
+| `GITLAB_HOST`               | `gitlab.your-org.example.com` |
+| `GITLAB_IAP_SA`             | `gitlab-iap-api-access@your-project.iam.gserviceaccount.com` |
+| `GITLAB_IAP_AUDIENCE`       | `your-iap-client-id.apps.googleusercontent.com` |
+| `GITLAB_PRIMARY_PROJECT`    | `your-group/your-project` |
+| `GITLAB_PRIMARY_PROJECT_ID` | `1` |
+| `GITLAB_USERNAME`           | `your-gitlab-username` |
 ```
 
-Check the plugin's documentation for the keys it expects.
+A full annotated example — including where to place this file, how to configure `GITLAB_PAT_CMD`,
+and why you should not put this in your global `CLAUDE.md` — is in:
+
+**[examples/gitlab-workspace-CLAUDE.md](examples/gitlab-workspace-CLAUDE.md)**
+
+Check each plugin's documentation for the full list of keys it recognizes.
 
 ---
 

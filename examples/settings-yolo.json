@@ -4,6 +4,17 @@
   "_comment3": "DO NOT start here. Use settings-starter.json first and migrate once you trust Claude's judgment.",
   "_comment4": "This file lives at ~/.claude/settings.json",
 
+  "_env_comment": "Environment variables set for every Claude Code session.",
+  "_env_comment2": "These three are required to route Claude through StackArmor's Vertex AI backend.",
+  "_env_comment3": "CLAUDE_CODE_DISABLE_AUTO_MEMORY: '0' enables auto memory (context retained across sessions).",
+  "_env_comment4": "Set CLAUDE_CODE_DISABLE_AUTO_MEMORY to '1' to disable auto memory.",
+  "env": {
+    "CLAUDE_CODE_USE_VERTEX": "1",
+    "CLOUD_ML_REGION": "global",
+    "ANTHROPIC_VERTEX_PROJECT_ID": "armoryd2v-gss-prod",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0"
+  },
+
   "permissions": {
     "_allow_comment": "These patterns are auto-approved without prompting.",
     "allow": [
@@ -70,9 +81,6 @@
       }
     ]
   },
-
-  "_auto_memory_comment": "CLAUDE_CODE_DISABLE_AUTO_MEMORY=0 ENABLES auto memory (retains context across sessions).",
-  "_auto_memory_comment2": "Set to '1' to disable. Most users should leave it at 0.",
 
   "_plugins_comment": "Plugins extend Claude Code with team-specific slash commands and skills.",
   "_plugins_comment2": "Format: \"plugin-name@publisher\": true",

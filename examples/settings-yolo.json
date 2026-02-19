@@ -49,7 +49,11 @@
     ]
   },
 
-  "_model_comment": "Model options: claude-opus-4-6, claude-sonnet-4-6, claude-haiku-4-6",
+  "_model_comment": "DEFAULT: claude-sonnet-4-6 — use for all routine tasks (Terraform, debugging, MRs, etc.).",
+  "_model_comment2": "claude-opus-4-6 is significantly more expensive. Only switch when Sonnet is genuinely",
+  "_model_comment3": "insufficient: large architecture work, complex multi-system debugging. Not for everyday use.",
+  "_model_comment4": "Override per-session without changing this file: claude --model claude-opus-4-6",
+  "_model_comment5": "Formal governance (rate limits, token budgets) is coming. Use responsibly in the interim.",
   "model": "claude-sonnet-4-6",
 
   "_hooks_comment": "Hooks run before or after tool calls. This example blocks edits to generated/managed files.",

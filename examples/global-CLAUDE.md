@@ -18,6 +18,17 @@
 
 ---
 
+## Model Selection
+
+- Use **Sonnet** (`claude-sonnet-4-6`) for all routine tasks — it handles the vast majority of engineering work well.
+- Use **Opus** (`claude-opus-4-6`) only when a task genuinely requires deeper reasoning (complex architecture decisions, intricate multi-system debugging). It is significantly more expensive.
+- When in doubt, start with Sonnet. Switch to Opus for a specific session only if needed: `claude --model claude-opus-4-6`.
+- Use `/cost` inside a session to check token consumption. Use `/clear` to reset a long-running context.
+
+> Formal controls around model usage and token budgets are coming. Use responsibly in the interim.
+
+---
+
 ## Communication Style
 
 - Be concise. Prefer short, direct answers over long explanations.

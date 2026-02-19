@@ -42,6 +42,50 @@ If you get a `PERMISSION_DENIED` error, ask your manager to add your GCP identit
 
 ---
 
+## Model Selection & Responsible Use
+
+> **Governance notice:** Formal controls around model selection, token budgets, and API rate limiting
+> are coming. In the interim, please use responsibly — costs are real and shared across the team.
+
+### Which Model to Use
+
+| Model | When to use |
+|-------|------------|
+| `claude-sonnet-4-6` | **Default for everything.** Fast, capable, and cost-effective. Handles the vast majority of engineering tasks well. |
+| `claude-opus-4-6` | **Complex tasks only.** Large-scale architecture decisions, intricate multi-system debugging, tasks where Sonnet has demonstrably struggled. |
+
+**Start every session with Sonnet.** If you find yourself hitting the limits of what it can reason through, switch to Opus for that specific task. Do not default to Opus out of habit — the cost difference is significant.
+
+Set your default in `~/.claude/settings.json`:
+
+```json
+{
+  "model": "claude-sonnet-4-6"
+}
+```
+
+To switch models for a single session without changing your config:
+
+```bash
+claude --model claude-opus-4-6
+```
+
+### Checking Your Usage
+
+Use the `/cost` command inside any Claude Code session to see token consumption for the current conversation. If a session is running long, `/clear` resets the context window and reduces ongoing cost.
+
+### What Counts as a "Complex Task"?
+
+Opus is worth considering when the task genuinely requires deeper reasoning — for example:
+
+- Designing the architecture for a new multi-tenant system from scratch
+- Debugging a subtle race condition or security issue across many interacting components
+- Reviewing a large, unfamiliar codebase to produce a detailed remediation plan
+
+Most day-to-day work — writing Terraform, fixing a bug, drafting runbook updates, creating MRs — is well within Sonnet's capability.
+
+---
+
 ## What is Claude Code?
 
 Claude Code is an agentic CLI tool built by Anthropic that runs directly in your terminal. Unlike a chat interface, Claude Code can read your files, run commands, edit code, search the web, and orchestrate complex multi-step tasks — all from your working directory.

@@ -22,8 +22,10 @@
     ]
   },
 
-  "_model_comment": "Model options: claude-opus-4-5, claude-sonnet-4-5, claude-haiku-4-5",
-  "_model_comment2": "Sonnet is a good default — fast and capable. Opus is more powerful for complex tasks.",
+  "_model_comment": "DEFAULT: claude-sonnet-4-6 — use this for all routine tasks.",
+  "_model_comment2": "claude-opus-4-6 is significantly more expensive. Reserve it for genuinely complex tasks",
+  "_model_comment3": "(large architecture decisions, intricate multi-system debugging). Not for everyday use.",
+  "_model_comment4": "Formal governance around model usage and token budgets is coming. Use responsibly.",
   "model": "claude-sonnet-4-6",
 
   "_plugins_comment": "Add plugins here after installing them via /plugins in a Claude session.",

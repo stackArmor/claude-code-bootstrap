@@ -1,0 +1,79 @@
+{
+  "_comment": "ADVANCED 'QUASI-YOLO' SETTINGS — For experienced Claude Code users.",
+  "_comment2": "Most operations are auto-approved. Only destructive or irreversible operations require explicit consent.",
+  "_comment3": "DO NOT start here. Use settings-starter.json first and migrate once you trust Claude's judgment.",
+  "_comment4": "This file lives at ~/.claude/settings.json",
+
+  "permissions": {
+    "_allow_comment": "These patterns are auto-approved without prompting.",
+    "allow": [
+      "Bash(*)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Skill(*)",
+      "WebFetch",
+      "WebSearch",
+      "Task",
+      "NotebookEdit"
+    ],
+
+    "_ask_comment": "These patterns ALWAYS require explicit user consent regardless of the allow list above.",
+    "_ask_comment2": "The ask list takes precedence over the allow list.",
+    "ask": [
+      "Bash(terraform apply*)",
+      "Bash(terraform destroy*)",
+      "Bash(tf apply*)",
+      "Bash(tf destroy*)",
+      "Bash(tf state*)",
+      "Bash(terraform state rm*)",
+      "Bash(terraform state mv*)",
+      "Bash(ansible-playbook*)",
+      "Bash(ansible *)",
+      "Bash(kubectl apply*)",
+      "Bash(kubectl delete*)",
+      "Bash(kubectl create*)",
+      "Bash(helm upgrade*)",
+      "Bash(helm install*)",
+      "Bash(helm rm*)",
+      "Bash(helm uninstall*)",
+      "Bash(helm delete*)",
+      "Bash(gcloud * delete*)",
+      "Bash(gcloud delete*)",
+      "Bash(curl *-X POST*)",
+      "Bash(curl *-X post*)",
+      "Bash(curl *--data*)",
+      "Bash(curl *-d *)"
+    ]
+  },
+
+  "_model_comment": "Model options: claude-opus-4-6, claude-sonnet-4-6, claude-haiku-4-6",
+  "model": "claude-sonnet-4-6",
+
+  "_hooks_comment": "Hooks run before or after tool calls. This example blocks edits to generated/managed files.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "case \"$CLAUDE_FILE_PATH\" in *.lock.hcl|*-providers.tf|*.auto.tfvars.json) echo 'BLOCK: This file is generated/managed externally. Do not edit directly.' >&2; exit 2;; esac"
+          }
+        ]
+      }
+    ]
+  },
+
+  "_plugins_comment": "Plugins extend Claude Code with team-specific slash commands and skills.",
+  "_plugins_comment2": "Format: \"plugin-name@publisher\": true",
+  "_plugins_comment3": "Install plugins via /plugins in a Claude Code session, then add the entry here.",
+  "enabledPlugins": {
+    "_example_comment": "Uncomment and add your plugins below:",
+    "sa-gitlab@stackArmor": true,
+    "claude-md-management@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
+  }
+}

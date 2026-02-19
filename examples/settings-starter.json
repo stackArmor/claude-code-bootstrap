@@ -1,0 +1,31 @@
+{
+  "_comment": "STARTER SETTINGS — Recommended for new Claude Code users.",
+  "_comment2": "In this config, Claude will ask before running ANY shell command.",
+  "_comment3": "As you get comfortable, move specific trusted commands to the 'allow' list.",
+  "_comment4": "This file lives at ~/.claude/settings.json",
+
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "ask": [
+      "Bash(*)",
+      "Write",
+      "Edit",
+      "NotebookEdit",
+      "Task",
+      "Skill(*)"
+    ]
+  },
+
+  "_model_comment": "Model options: claude-opus-4-5, claude-sonnet-4-5, claude-haiku-4-5",
+  "_model_comment2": "Sonnet is a good default — fast and capable. Opus is more powerful for complex tasks.",
+  "model": "claude-sonnet-4-6",
+
+  "_plugins_comment": "Add plugins here after installing them via /plugins in a Claude session.",
+  "enabledPlugins": {}
+}

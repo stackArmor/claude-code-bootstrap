@@ -10,6 +10,12 @@
 
 ---
 
+## Brand Names and Terminology
+
+- The company name is **stackArmor** — lowercase 's', uppercase 'A'. Never write "StackArmor".
+
+---
+
 ## Identity
 
 - GitHub username: `YOUR_GITHUB_USERNAME`

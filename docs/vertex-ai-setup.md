@@ -1,6 +1,6 @@
 # Claude Code via Vertex AI — Setup Guide
 
-StackArmor runs Claude Code backed by **Vertex AI** rather than the public Anthropic API. This means:
+stackArmor runs Claude Code backed by **Vertex AI** rather than the public Anthropic API. This means:
 
 - No personal Anthropic API key or subscription required
 - All API calls go through GCP and are fully auditable per-user
@@ -13,9 +13,9 @@ StackArmor runs Claude Code backed by **Vertex AI** rather than the public Anthr
 
 Claude Code uses [gcloud Application Default Credentials (ADC)](https://cloud.google.com/docs/authentication/application-default-credentials) to authenticate to Vertex AI.
 
-StackArmor uses **cross-org access** so that employees in `thearmory.cloud`, `dev.thearmory.cloud`, and `gov.geckorobotics.com` can reach the Vertex AI endpoint in `armoryd2v-gss-prod` using their own identity — **no service account key, no shared credential**. Every API call is logged under your personal identity.
+stackArmor uses **cross-org access** so that employees in `thearmory.cloud`, `dev.thearmory.cloud`, and `gov.geckorobotics.com` can reach the Vertex AI endpoint in `armoryd2v-gss-prod` using their own identity — **no service account key, no shared credential**. Every API call is logged under your personal identity.
 
-Assigned IAM groups in each org are limited to known StackArmor employees and granted the `Vertex AI User` role in `armoryd2v-gss-prod`.
+Assigned IAM groups in each org are limited to known stackArmor employees and granted the `Vertex AI User` role in `armoryd2v-gss-prod`.
 
 > **Because of this, no custom gcloud profile configuration is necessary.** Just authenticate normally and Claude Code picks up your credentials automatically.
 

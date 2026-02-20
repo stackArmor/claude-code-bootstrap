@@ -5,7 +5,7 @@
   "_comment4": "This file lives at ~/.claude/settings.json",
 
   "_env_comment": "Environment variables set for every Claude Code session.",
-  "_env_comment2": "These three are required to route Claude through StackArmor's Vertex AI backend.",
+  "_env_comment2": "These three are required to route Claude through stackArmor's Vertex AI backend.",
   "_env_comment3": "CLAUDE_CODE_DISABLE_AUTO_MEMORY: '0' enables auto memory (context retained across sessions).",
   "_env_comment4": "Set CLAUDE_CODE_DISABLE_AUTO_MEMORY to '1' to disable auto memory.",
   "env": {

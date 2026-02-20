@@ -2,7 +2,7 @@
 
 > **Where this file lives matters.** See [Where to Put This File](#where-to-put-this-file) below.
 >
-> This is based on the real workspace-level `CLAUDE.md` used in the StackArmor `armory-gitlab`
+> This is based on the real workspace-level `CLAUDE.md` used in the stackArmor `armory-gitlab`
 > workspace. Copy it, fill in your values, and drop it at the root of your GitLab workspace directory.
 
 This file provides workspace-specific configuration for Claude Code. Values here

@@ -1,14 +1,14 @@
 # Claude Code Bootstrap
 
-Getting started with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) at StackArmor.
+Getting started with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) at stackArmor.
 
 > **Note for the Slack canvas:** See the `#armory-technical-team` channel canvas for additional team-specific tips and screencasts.
 
 ---
 
-## StackArmor Setup: Vertex AI Backend
+## stackArmor Setup: Vertex AI Backend
 
-At StackArmor, Claude Code runs via **Vertex AI** — not the public Anthropic API. This means:
+At stackArmor, Claude Code runs via **Vertex AI** — not the public Anthropic API. This means:
 
 - No personal Anthropic account or API key required
 - All usage is authenticated through your GCP identity (`gcloud` ADC)
@@ -110,7 +110,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 claude --version
 ```
 
-At StackArmor you do **not** need an Anthropic account or API key. Authentication is handled entirely through GCP. See [docs/vertex-ai-setup.md](docs/vertex-ai-setup.md) for the full setup walkthrough.
+At stackArmor you do **not** need an Anthropic account or API key. Authentication is handled entirely through GCP. See [docs/vertex-ai-setup.md](docs/vertex-ai-setup.md) for the full setup walkthrough.
 
 ---
 
@@ -213,7 +213,7 @@ Plugins add **skills** — slash commands you can invoke by typing `/skill-name`
 - `/my-issues` — list GitLab issues assigned to you
 - `/change-request` — file a change request issue with a template
 
-### Recommended Plugins for StackArmor
+### Recommended Plugins for stackArmor
 
 | Plugin | What it does |
 |--------|-------------|
@@ -287,7 +287,7 @@ This helps every team member who uses Claude Code in that repo get up to speed f
 
 ## Further Reading
 
-- [StackArmor Vertex AI Setup](docs/vertex-ai-setup.md) — how auth works and how to configure it
+- [stackArmor Vertex AI Setup](docs/vertex-ai-setup.md) — how auth works and how to configure it
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code/overview)
 - [CLAUDE.md Best Practices](https://docs.anthropic.com/en/docs/claude-code/memory)
 - [Settings Reference](https://docs.anthropic.com/en/docs/claude-code/settings)
